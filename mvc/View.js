@@ -1,16 +1,18 @@
 const readlineSync = require('readline-sync');
 
 class View {
-  renderSelectTopicPage(themes) {
+  renderSelectTopicPage() {
     // нам пришёл список тем, нужно вывести их на экран
-    // здесь твой код...
+    console.log('\x1b[33mДобро пожаловать!\n');
+    const topics = ['1. Ястребы 🦅', '2. Выдры 🦦', '3. Еноты 🦝'];
+    console.log('\x1b[37m' + topics.join('\n'));
 
-    // затем даём пользователю возможность выбрать тему
-    const topic = readlineSync.question('Введите тему: ');
+    const readline = readlineSync.question('\x1b[34mВыберите номер темы: ');
 
-    // и возвращаем контроллеру выбранную тему
-    return topic;
+    return readline;
   }
+
+  renderQuestion();
 }
 
 module.exports = View;
