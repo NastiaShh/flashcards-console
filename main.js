@@ -32,9 +32,9 @@ function getAnswer(newDataArr, index) {
 
 console.log('\x1b[33mДобро пожаловать!\n');
 
-const topics = ['1. Гарри Поттер 🧙🏼‍♂️', '2. Космос 🚀', '3. Страны мира 🌎'];
+const topics = ['1. Гарри Поттер 🧙', '2. Космос 🚀', '3. Страны мира 🌎'];
 console.log('\x1b[37m' + topics.join('\n'));
-const readline = readlineSync.question('\x1b[34mВыберите номер темы: ');
+const readline = readlineSync.question('\n\x1b[34mВыберите номер темы: ');
 let score = 0;
 async function Question(readline) {
   const fileName = (readline == 1) ? 'harryPotter.txt' : (readline == 2) ? 'space.txt' : 'countries.txt';
@@ -43,7 +43,7 @@ async function Question(readline) {
   for (let i = 0; i < questionArr.length; i += 1) {
     console.log('\x1b[37m' + getQuestion(questionArr, i));
     const answer = readlineSync.question('Ваш ответ:  ');
-    if (answer.toLowerCase() === getAnswer(questionArr, i)) {
+    if (answer.toLowerCase() === getAnswer(questionArr, i).toLowerCase()) {
       console.log('\n\x1b[32mВерно! 👍\n');
       score += 1;
     } else {
